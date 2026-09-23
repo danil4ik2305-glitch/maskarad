@@ -86,12 +86,12 @@ CREATE TABLE feedback (
 -- ---------- Данные ----------
 INSERT INTO roles (role_name) VALUES ('Администратор'), ('Пользователь');
 
-INSERT INTO users (role_id, first_name, last_name, email, phone, password_hash) VALUES
-(1, 'Админ', 'Маскарад', 'admin@maskarad.ru', '+7 (495) 123-45-67', '$2y$10$u0QOL0lJbk/utpPHsnKzSu4sNXINTrmfhprtRHbe9MNSq59SN1uj6'),
-(2, 'Даниил', 'Сулайманов', 'daniil@mail.ru', '+7 (916) 555-12-34', '$2y$10$a9/ylwd3jIiaeqTAcFUxxutAe0oGrqIDG6zRum.NeUJBtjRGsM4r6'),
-(2, 'Анна', 'Петрова', 'anna@mail.ru', '+7 (903) 111-22-33', '$2y$10$a9/ylwd3jIiaeqTAcFUxxutAe0oGrqIDG6zRum.NeUJBtjRGsM4r6'),
-(2, 'Игорь', 'Смирнов', 'igor@mail.ru', '+7 (925) 444-55-66', '$2y$10$a9/ylwd3jIiaeqTAcFUxxutAe0oGrqIDG6zRum.NeUJBtjRGsM4r6'),
-(2, 'Мария', 'Ли', 'maria@mail.ru', '+7 (977) 777-88-99', '$2y$10$a9/ylwd3jIiaeqTAcFUxxutAe0oGrqIDG6zRum.NeUJBtjRGsM4r6');
+INSERT INTO users (role_id, first_name, last_name, email, phone, password_hash, created_at) VALUES
+(1, 'Админ', 'Маскарад', 'admin@maskarad.ru', '+7 (495) 123-45-67', '$2y$10$u0QOL0lJbk/utpPHsnKzSu4sNXINTrmfhprtRHbe9MNSq59SN1uj6', '2026-09-21 10:05:00'),
+(2, 'Даниил', 'Сулайманов', 'daniil@mail.ru', '+7 (916) 555-12-34', '$2y$10$a9/ylwd3jIiaeqTAcFUxxutAe0oGrqIDG6zRum.NeUJBtjRGsM4r6', '2026-09-21 12:14:00'),
+(2, 'Анна', 'Петрова', 'anna@mail.ru', '+7 (903) 111-22-33', '$2y$10$a9/ylwd3jIiaeqTAcFUxxutAe0oGrqIDG6zRum.NeUJBtjRGsM4r6', '2026-09-21 15:40:00'),
+(2, 'Игорь', 'Смирнов', 'igor@mail.ru', '+7 (925) 444-55-66', '$2y$10$a9/ylwd3jIiaeqTAcFUxxutAe0oGrqIDG6zRum.NeUJBtjRGsM4r6', '2026-09-22 09:22:00'),
+(2, 'Мария', 'Ли', 'maria@mail.ru', '+7 (977) 777-88-99', '$2y$10$a9/ylwd3jIiaeqTAcFUxxutAe0oGrqIDG6zRum.NeUJBtjRGsM4r6', '2026-09-22 11:47:00');
 
 INSERT INTO categories (category_name, description, image_url) VALUES
 ('Исторические', 'Костюмы разных эпох для балов и реконструкций', 'https://images.unsplash.com/photo-1783231607195-38662c407218?w=600&q=70'),
@@ -112,25 +112,25 @@ INSERT INTO costumes (category_id, costume_name, description, gender, sizes, pri
 
 INSERT INTO booking_statuses (status_name) VALUES ('Новая'), ('Подтверждена'), ('Выдан'), ('Завершена'), ('Отменена');
 
-INSERT INTO bookings (user_id, costume_id, status_id, size, date_from, date_to, total_price, comment) VALUES
-(2, 1, 1, 'M', '2026-06-12', '2026-06-14', 7000, 'Нужна подгонка по длине'),
-(2, 3, 3, '122', '2026-05-28', '2026-05-29', 1200, NULL),
-(2, 4, 4, 'M', '2025-10-30', '2025-11-01', 3600, NULL),
-(3, 2, 2, 'L', '2026-06-10', '2026-06-11', 2800, NULL),
-(4, 7, 3, 'L', '2026-06-05', '2026-06-07', 4400, 'Для корпоратива'),
-(5, 6, 4, 'ONE', '2026-02-20', '2026-02-21', 1500, NULL),
-(3, 8, 4, 'S', '2026-01-15', '2026-01-16', 3200, NULL),
-(4, 5, 5, '104', '2025-12-25', '2025-12-26', 900, 'Отменили утренник');
+INSERT INTO bookings (user_id, costume_id, status_id, size, date_from, date_to, total_price, comment, created_at) VALUES
+(2, 1, 1, 'M', '2026-10-30', '2026-11-01', 7000, 'Нужна подгонка по длине', '2026-09-23 10:15:00'),
+(2, 3, 3, '122', '2026-09-22', '2026-09-23', 1200, NULL, '2026-09-22 13:30:00'),
+(2, 4, 4, 'M', '2025-10-30', '2025-11-01', 3600, NULL, '2026-09-21 16:02:00'),
+(3, 2, 2, 'L', '2026-10-10', '2026-10-11', 2800, NULL, '2026-09-22 17:45:00'),
+(4, 7, 3, 'L', '2026-09-23', '2026-09-25', 4400, 'Для корпоратива', '2026-09-22 12:10:00'),
+(5, 6, 4, 'ONE', '2026-02-20', '2026-02-21', 1500, NULL, '2026-09-21 18:20:00'),
+(3, 8, 4, 'S', '2026-01-15', '2026-01-16', 3200, NULL, '2026-09-21 19:05:00'),
+(4, 5, 5, '104', '2025-12-25', '2025-12-26', 900, 'Отменили утренник', '2026-09-22 10:00:00');
 
-INSERT INTO reviews (user_id, costume_id, rating, review_text, is_approved) VALUES
-(3, 1, 5, 'Брали костюм на исторический бал — сидел идеально, всё чистое. Бронировали через сайт, очень удобно.', 1),
-(4, 3, 5, 'Сыну на утренник взяли костюм супергероя. Дёшево и быстро, забрали за 10 минут.', 1),
-(5, 4, 4, 'Большой выбор для Хэллоуина, помогли подобрать размер по телефону.', 1),
-(2, 4, 5, 'Отличный костюм, все были в восторге!', 0);
+INSERT INTO reviews (user_id, costume_id, rating, review_text, is_approved, created_at) VALUES
+(3, 1, 5, 'Брали костюм на исторический бал — сидел идеально, всё чистое. Бронировали через сайт, очень удобно.', 1, '2026-09-21 20:10:00'),
+(4, 3, 5, 'Сыну на утренник взяли костюм супергероя. Дёшево и быстро, забрали за 10 минут.', 1, '2026-09-22 14:30:00'),
+(5, 4, 4, 'Большой выбор для Хэллоуина, помогли подобрать размер по телефону.', 1, '2026-09-22 19:55:00'),
+(2, 4, 5, 'Отличный костюм, все были в восторге!', 0, '2026-09-23 11:20:00');
 
-INSERT INTO feedback (user_id, name, phone, message) VALUES
-(NULL, 'Ольга', '+7 (926) 000-11-22', 'Есть ли костюм Снегурочки размера L на 31 декабря?'),
-(2, 'Даниил', '+7 (916) 555-12-34', 'Можно ли продлить прокат на один день?');
+INSERT INTO feedback (user_id, name, phone, message, created_at) VALUES
+(NULL, 'Ольга', '+7 (926) 000-11-22', 'Есть ли костюм Снегурочки размера L на 31 декабря?', '2026-09-22 16:40:00'),
+(2, 'Даниил', '+7 (916) 555-12-34', 'Можно ли продлить прокат на один день?', '2026-09-23 09:35:00');
 
 -- ---------- Представления ----------
 -- 1. Каталог костюмов с категорией и рейтингом
